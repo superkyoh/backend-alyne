@@ -1,0 +1,29 @@
+{
+  "name": "backend-alyne",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superkyoh/backend-alyne.git"
+  },
+  "author": "Yohana Heringer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/superkyoh/backend-alyne/issues"
+  },
+  "homepage": "https://github.com/superkyoh/backend-alyne#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "jwt-simple": "^0.5.6",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "sqlite3": "^4.1.0"
+  }
+}
