@@ -1,18 +1,11 @@
 const app = require('express')();
 const consign = require('consign');
-const sqlite3 = require('sqlite3').verbose();
+const knex = require('knex');
+const knexfile = require('./knexfile');
 
-let db = new sqlite3.Database('./config/db/alyne.db', err => {
-    if (err) {
-      return console.error(err.message);
-    }
-    console.log('Connected to Alyne database.');
-});
- 
-db.run('CREATE TABLE users(email text, password text, token text)');
-db.close();
+app.db = knex(knexfile.development);
 
-consign({ cwd: 'src', verbose: false })
+consign()
   .include('./config/passport.js')
   .then('./config/middlewares.js')
   .then('./services')
