@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "askForPassword": true,
+            "database": "./config/db/alyne.db",
+            "dialect": "SQLite",
+            "name": "dev"
+        }
+    ]
+}
