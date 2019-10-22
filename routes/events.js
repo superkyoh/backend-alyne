@@ -15,8 +15,11 @@ module.exports = (app) => {
 
   router.post('/', (req, res, next) => {
     app.services.event.save({ ...req.body, user_id: req.user.id })
-      .then((result) => {
-        return res.status(201).json(result[0]);
+      .then(() => {
+        app.services.event.saveFriends(req.body)
+        .then((result) => {
+          return res.status(201).json(result[0]);
+        })
       }).catch(err => next(err));
   });
 
@@ -27,7 +30,7 @@ module.exports = (app) => {
   });
 
   router.get('/:id', (req, res, next) => {
-    app.services.event.find({ id: req.params.id })
+    app.services.event.findById(req.params.id)
       .then(result => res.status(200).json(result))
       .catch(err => next(err));
   });
