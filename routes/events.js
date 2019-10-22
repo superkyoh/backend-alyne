@@ -35,6 +35,12 @@ module.exports = (app) => {
       .catch(err => next(err));
   });
 
+  router.put('/:id/alyne', (req, res, next) => {
+    app.services.event.alyne(req.params.id, req.body)
+      .then(result => res.status(200).json(result[0]))
+      .catch(err => next(err));
+  });
+
   router.put('/:id', (req, res, next) => {
     app.services.event.update(req.params.id, req.body)
       .then(result => res.status(200).json(result[0]))

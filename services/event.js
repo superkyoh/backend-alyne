@@ -49,6 +49,16 @@ module.exports = (app) => {
     return evt_created.id;
   };
 
+  const alyne = (id, event) => {
+
+    //buscar na tabela users as datas disponiveis, pegar a menor e adicionar no aligned event para update.
+    //const alignedEvent = 
+
+    return app.db('events')
+      .where({ id })
+      .update(alignedEvent, '*');
+  };
+
   const update = (id, event) => {
     return app.db('events')
       .where({ id })
@@ -62,6 +72,6 @@ module.exports = (app) => {
   };
 
   return {
-    save, find, findAll, update, remove, findById, saveFriends
+    save, find, findAll, update, remove, findById, saveFriends, alyne
   };
 };
