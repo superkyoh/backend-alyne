@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e71483c4-ad7f-4f79-8ae6-59546e7af707",
+		"_postman_id": "99f0ced9-6298-4099-8950-1f6b437e32cc",
 		"name": "Alyne",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -246,6 +246,54 @@
 						"v1",
 						"events",
 						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3001/v1/events/11/alyne",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6Ikx1aXMiLCJlbWFpbCI6ImxzcGVjaWFuQGdtYWlsLmNvbSJ9.leOO6HazWifA2dlKAgxJgAgkKJ81YBvqwFk9yK3U73E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Baladinha6\", \"location\": \"Paulista\", \"date\": null, \"user_id\": 1,  \"friends\": [\n        {\n            \"id\": 2,\n            \"name\": \"Yohana\",\n            \"email\": \"yohana@gmail.com\",\n            \"available_dates\": \"2019/11/15, 2019/11/20\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Vinicius\",\n            \"email\": \"vinicius@gmail.com\",\n            \"available_dates\": \"2019/11/15, 2019/11/20\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Priscila\",\n            \"email\": \"priscila@gmail.com\",\n            \"available_dates\": \"2019/11/15, 2019/11/20\"\n        }\n    ] }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v1/events/11/alyne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"events",
+						"11",
+						"alyne"
 					]
 				}
 			},
