@@ -28,6 +28,12 @@ module.exports = (app) => {
       .then(result => res.status(200).json(result))
       .catch(err => next(err));
   });
+  
+  router.get('/myevents', (req, res, next) => {
+    app.services.event.findMyEvents(req.user.id)
+      .then(result => res.status(200).json(result))
+      .catch(err => next(err));
+  });
 
   router.get('/:id', (req, res, next) => {
     app.services.event.findById(req.params.id)

@@ -11,6 +11,16 @@ module.exports = (app) => {
     return app.db('events').where({ user_id: userId });
   };
 
+  const findMyEvents = async (userId) => {
+    let my_events = [];
+    let my_events_id = await app.db('groups').where({user_id: userId});
+    for(let i = 0; i < my_events_id.length; i++){
+      let event = await app.db('events').where({ id: my_events_id[i].event_id });
+      my_events.push(event)
+    }
+    return my_events;
+  };
+
   const findById = async(eventId) => {
     let friends = [];
     let event_friends = [];
@@ -68,12 +78,6 @@ module.exports = (app) => {
       .update(alignedEvent, '*');
   };
 
-  function isAvailable(date1, date2) { 
-    return date1 === date2;
-  }
-
-
-
   const update = (id, event) => {
     return app.db('events')
       .where({ id })
@@ -87,6 +91,6 @@ module.exports = (app) => {
   };
 
   return {
-    save, find, findAll, update, remove, findById, saveFriends, alyne
+    save, find, findAll, update, remove, findById, saveFriends, alyne, findMyEvents
   };
 };
