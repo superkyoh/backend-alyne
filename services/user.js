@@ -3,7 +3,7 @@ const ValidationError = require('../errors/ValidationError');
 
 module.exports = (app) => {
   const findAll = () => {
-    return app.db('users').select(['id', 'name', 'email']);
+    return app.db('users').select(['id', 'name', 'email', 'available_dates']);
   };
 
   const findOne = (filter = {}) => {
@@ -23,8 +23,9 @@ module.exports = (app) => {
     const userDb = await findOne({ email: user.email });
     if (userDb) throw new ValidationError('User already exists');
 
-    const newUser = { ...user };
+    const newUser = { ...user};
     newUser.password = getPasswdHash(user.password);
+    newUser.available_dates = '2019/11/15, 2019/11/20';
 
     return app.db('users').insert(newUser, ['id', 'name', 'email']);
   };

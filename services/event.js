@@ -15,12 +15,10 @@ module.exports = (app) => {
     let friends = [];
     let event_friends = [];
     const event = await app.db('events').where({ id: eventId }).first();
-    console.log('evento' + event.id)
     friends = await app.db('groups').where({event_id: event.id})
-    console.log('friends' + JSON.stringify(friends[0]))
     for(let i = 0; i < friends.length; i++){
       let userDb = await app.db('users').where({ id: friends[i].user_id }).first();
-      let newUser = { id: userDb.id, name: userDb.name, email: userDb.email }
+      let newUser = { id: userDb.id, name: userDb.name, email: userDb.email, available_dates: userDb.available_dates }
       event_friends.push(newUser);
     };
     
@@ -49,15 +47,32 @@ module.exports = (app) => {
     return evt_created.id;
   };
 
-  const alyne = (id, event) => {
+  const alyne = async (id, event) => {
+    let owner = await app.db('users').where({ id: event.user_id }).first();
+    let date_owner = owner.available_dates.split(',');
+    let date_alygned = '';
+    let friends = event.friends;
+    for(let i = 0; i < friends.length; i++){
+      let dates = friends[i].available_dates.split(',');
+      dates.sort();
+      let alygned = dates.includes(date_owner[0]);
+      if (alygned){
+        date_alygned = date_owner[0];
+      }
+    }
 
-    //buscar na tabela users as datas disponiveis, pegar a menor e adicionar no aligned event para update.
-    //const alignedEvent = 
+    let alignedEvent = { name: event.name,location: event.location, date: date_alygned, user_id: event.user_id }
 
     return app.db('events')
       .where({ id })
       .update(alignedEvent, '*');
   };
+
+  function isAvailable(date1, date2) { 
+    return date1 === date2;
+  }
+
+
 
   const update = (id, event) => {
     return app.db('events')
