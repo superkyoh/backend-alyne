@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "99f0ced9-6298-4099-8950-1f6b437e32cc",
+		"_postman_id": "5147ddc2-57d8-46c2-9f2f-482b10c50d0e",
 		"name": "Alyne",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,12 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"lspecian@gmail.com\", \"name\":\"Luis\", \"password\":\"luisau\"}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\"email\":\"lspecian@gmail.com\", \"name\":\"Luis\", \"password\":\"luisau\"}"
 				},
 				"url": {
 					"raw": "http://localhost:3001/auth/signup",
@@ -55,12 +50,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"lspecian@gmail.com\", \"password\":\"luisau\"}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\"email\":\"lspecian@gmail.com\", \"password\":\"luisau\"}"
 				},
 				"url": {
 					"raw": "http://localhost:3001/auth/signin",
@@ -137,12 +127,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"Festa de formatura\", \"location\": \"FIAP\" }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\"name\":\"Festa de formatura\", \"location\": \"FIAP\" }"
 				},
 				"url": {
 					"raw": "http://localhost:3001/v1/events",
@@ -275,12 +260,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"Baladinha6\", \"location\": \"Paulista\", \"date\": null, \"user_id\": 1,  \"friends\": [\n        {\n            \"id\": 2,\n            \"name\": \"Yohana\",\n            \"email\": \"yohana@gmail.com\",\n            \"available_dates\": \"2019/11/15, 2019/11/20\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Vinicius\",\n            \"email\": \"vinicius@gmail.com\",\n            \"available_dates\": \"2019/11/15, 2019/11/20\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Priscila\",\n            \"email\": \"priscila@gmail.com\",\n            \"available_dates\": \"2019/11/15, 2019/11/20\"\n        }\n    ] }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\"name\":\"Baladinha6\", \"location\": \"Paulista\", \"date\": null, \"user_id\": 1,  \"friends\": [\n        {\n            \"id\": 2,\n            \"name\": \"Yohana\",\n            \"email\": \"yohana@gmail.com\",\n            \"available_dates\": \"2019/11/15, 2019/11/20\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Vinicius\",\n            \"email\": \"vinicius@gmail.com\",\n            \"available_dates\": \"2019/11/15, 2019/11/20\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Priscila\",\n            \"email\": \"priscila@gmail.com\",\n            \"available_dates\": \"2019/11/15, 2019/11/20\"\n        }\n    ] }"
 				},
 				"url": {
 					"raw": "http://localhost:3001/v1/events/11/alyne",
@@ -298,7 +278,37 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:3001/v1/events/myevents",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MywibmFtZSI6IlZpbmljaXVzIiwiZW1haWwiOiJ2aW5pY2l1c0BnbWFpbC5jb20ifQ.LTEVeL2Khqu2npWQQCXBZKXrBu5tEm4u4UA5VCy-vX4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/v1/events/myevents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"events",
+						"myevents"
+					]
+				}
+			},
+			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
