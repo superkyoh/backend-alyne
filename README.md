@@ -1,7 +1,7 @@
 # backend-alyne
 
 Olá professor, este é o backend para suportar a aplicação Android, é uma versão simples porém que já possui as features que o app tem:
-- Criar e listar usuários, efetuar login/autenticação, criar eventos, listar eventos, atualizar eventos, deletar eventos, e gerar a data para o evento(update).
+- Criar e listar usuários, efetuar login/autenticação, criar eventos, listar eventos, atualizar eventos, deletar eventos, e gerar a data para o evento(update). Na pasta 'test' da aplicação tem a collection do postman também se quise ou precisar olhar.
 
 Obrigada, abaixo segue como rodar a aplicação.
 
