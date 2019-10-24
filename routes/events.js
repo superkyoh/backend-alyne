@@ -28,7 +28,7 @@ module.exports = (app) => {
       .then(result => res.status(200).json(result))
       .catch(err => next(err));
   });
-  
+
   router.get('/myevents', (req, res, next) => {
     app.services.event.findMyEvents(req.user.id)
       .then(result => res.status(200).json(result))
@@ -42,7 +42,7 @@ module.exports = (app) => {
   });
 
   router.put('/:id/alyne', (req, res, next) => {
-    app.services.event.alyne(req.params.id, req.body)
+    app.services.event.alyne(req.params.id)
       .then(result => res.status(200).json(result[0]))
       .catch(err => next(err));
   });
